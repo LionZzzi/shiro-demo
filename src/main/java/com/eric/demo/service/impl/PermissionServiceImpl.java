@@ -2,7 +2,6 @@ package com.eric.demo.service.impl;
 
 import com.eric.demo.common.Result;
 import com.eric.demo.domain.Permission;
-import com.eric.demo.module.redis.RedisImpl;
 import com.eric.demo.module.shiro.ShiroImpl;
 import com.eric.demo.repository.PermissionRepository;
 import com.eric.demo.service.PermissionService;
