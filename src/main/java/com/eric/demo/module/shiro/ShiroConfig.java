@@ -18,7 +18,7 @@ public class ShiroConfig {
 
     //设置shiro拦截器
     @Bean
-    public ShiroFilterFactoryBean shirFilter(SecurityManager securityManager, ShiroImpl shiroImpl) {
+    public ShiroFilterFactoryBean shiroFilter(SecurityManager securityManager, ShiroImpl shiroImpl) {
         ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
         shiroFilterFactoryBean.setSecurityManager(securityManager);
         // 自定义 ShiroFilter 过滤器，替代默认的过滤器
