@@ -52,7 +52,7 @@ public class RoleServiceImpl implements RoleService {
             }
             // 将数据批量插入用户角色表
             rolePermissionRepository.saveAll(rolePermissions);
-            return Result.success("橘色添加权限成功");
+            return Result.success("角色添加权限成功");
         } else {
             return Result.fail("查询不到此角色");
         }
