@@ -125,7 +125,7 @@ public class JwtUtil {
                 HttpServletResponse httpServletResponse = (HttpServletResponse) response;
                 try {
                     // 解析token,过期token则抛出ExpiredJwtException异常
-                    JwtUtil.parse(token);
+                    parse(token);
                     httpServletResponse.setHeader("token", token);
                 } catch (ExpiredJwtException e) {
                     // 大于jwt token过期时间小于redis的存活时间,则允许重新签发一个新的token,并重置redis的存活时间
@@ -133,7 +133,7 @@ public class JwtUtil {
                     User user = userService.findByUsername(username);
                     user.setPassword(null);
                     try {
-                        String newToken = JwtUtil.create(new ObjectMapper().setSerializationInclusion(JsonInclude.Include.NON_NULL).writeValueAsString(user));
+                        String newToken = create(new ObjectMapper().setSerializationInclusion(JsonInclude.Include.NON_NULL).writeValueAsString(user));
                         redisImpl.set(SysConstant.REDIS_TOKEN + username, newToken, SysConstant.EXPIRE_TIME * 2);
                         httpServletResponse.setHeader("token", newToken);
                     } catch (JsonProcessingException e1) {
